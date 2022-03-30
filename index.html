@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator Sari</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <style>
+        body {
+      background-color:#297F87;
+  }
+  .container {
+      width: 300px;
+      background: #FFF7AE;
+      border-radius: 5px;
+      box-shadow: 0 15px 50px 0 rgba(0,0,0,0.4), 0 15px 20px 0 rgba(0,0,0,0.2);
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -o-border-radius: 5px;
+      padding: 10px;
+  }
+
+  input[type='text'] {
+      width: 300px;
+      padding-right: 10px;
+      position: absolute;
+      bottom: 0;
+      border: none;
+      text-align: right;
+      font-size: 40px;
+      color: #000000;
+      background: #6e7479;
+  }
+  .line {
+      width: 300px;
+  }
+  input[type='button'] {
+      float: left;
+      font-size: 24px;
+      line-height: 70px;
+      margin: 1;
+      width: 73px;
+      height: 70px;
+      border: none;
+      color: #fafafa;
+      cursor: pointer;
+      outline: none;
+      background: #2d2d2d;
+      border-radius: 25%;
+      -webkit-border-radius: 25%;
+      -moz-border-radius: 25%;
+      -ms-border-radius: 25%;
+      -o-border-radius: 25%;
+  }
+  @keyframes hoverbtn{
+            from {opacity: 1;}
+            to {opacity: 0.7;}
+        }
+input[type="button"]:hover{
+    animation: hoverbtn 2s ease infinite alternate;
+}
+  input[type="button"][value='C'] {
+      background-color: #DF2E2E;
+      color:hsl(0, 0%, 100%);
+  }
+  input[type='button'][value='='] {
+    width:200%;
+    border-radius: 8px;
+    
+}
+      </style>
+
+</head>
+<body>
+   
+    <div class="container">
+       <form action="" name="cal">
+           <textarea name="field" id="" cols="40" rows="4" placeholder="0"></textarea>
+       </form>
+       <table>
+           <tr>
+               <td><input type="button" value="C" onclick="clean()"></td>
+               <td><input type="button" value="Del" onclick="back()"></td>
+               <td><input type="button" value="%" onclick="insert('%')"></td>
+               <td><input type="button" value="/" onclick="insert('/')"></td>
+           </tr>
+
+           <tr>
+                <td><input type="button" value="7" onclick="insert(7)"></td>
+                <td><input type="button" value="8" onclick="insert(8)"></td>
+                <td><input type="button" value="9" onclick="insert(9)"></td>
+                <td><input type="button" value="*" onclick="insert('*')"></td>
+           </tr>
+
+           <tr>
+                <td><input type="button" value="4" onclick="insert(4)"></td>
+                <td><input type="button" value="5" onclick="insert(5)"></td>
+                <td><input type="button" value="6" onclick="insert(6)"></td>
+                <td><input type="button" value="-" onclick="insert('-')"></td>
+           </tr>
+
+           <tr>
+                <td><input type="button" value="1" onclick="insert(1)"></td>
+                <td><input type="button" value="2" onclick="insert(2)"></td>
+                <td><input type="button" value="3" onclick="insert(3)"></td>
+                <td><input type="button" value="+" onclick="insert('+')"></td>
+           </tr>
+
+           <tr>
+                <td><input type="button" value="0" onclick="insert(0)"></td>
+                <td><input type="button" value="." onclick="insert('.')"></td>
+                <td><input type="button" value="=" onclick="equal()"></td>
+           </tr>
+       </table>
+
+    </div> <!-- akhir-->
+
+  
+    <script>
+        
+     function insert(num){
+          cal.field.value = cal.field.value + num
+          console.log(cal.field.value)
+     }
+
+     function equal(){
+
+          cal.field.value = eval(cal.field.value)
+     }
+
+     function clean(){ 
+          cal.field.value = ""
+     }
+
+     function back(){ 
+          cal.field.value = cal.field.value.substring(0, cal.field.value.length -1)
+     }
+</script>
+</body>
+</html>
